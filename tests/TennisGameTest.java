@@ -91,6 +91,26 @@ public class TennisGameTest {
 		
 		game.player1Scored();
 		game.player1Scored();
+		
+		game.player2Scored();
+		game.player2Scored();
+		
+		game.player1Scored();
+		game.player1Scored();
+		
+		//Act
+		String score = game.getScore() ;
+		// Assert
+		assertEquals("Player 1 does not win in 4-2 situation", "player1 wins", score);		
+	}
+	
+	@Test
+	public void testTennisGame_Player1HasWon2() throws TennisGameException {
+		//Arrange
+		TennisGame game = new TennisGame();
+		
+		game.player1Scored();
+		game.player1Scored();
 		game.player1Scored();
 		game.player1Scored();
 		
@@ -126,9 +146,7 @@ public class TennisGameTest {
 		
 		game.player1Scored();
 		game.player1Scored();
-		game.player1Scored();
 		
-		game.player2Scored();
 		game.player2Scored();
 		game.player2Scored();
 		game.player2Scored();
@@ -137,7 +155,23 @@ public class TennisGameTest {
 		//Act
 		String score = game.getScore() ;
 		// Assert
-		assertEquals("Player 2 does not win in 5-3 situation", "player2 wins", score);		
+		assertEquals("Player 2 does not win in 2-4 situation", "player2 wins", score);		
+	}
+	
+	@Test
+	public void testTennisGame_Player2HasWon2() throws TennisGameException {
+		//Arrange
+		TennisGame game = new TennisGame();
+		
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		
+		//Act
+		String score = game.getScore() ;
+		// Assert
+		assertEquals("Player 2 does not win in 0-4 situation", "player2 wins", score);		
 	}
 	
 	@Test
